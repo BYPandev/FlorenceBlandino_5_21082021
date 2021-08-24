@@ -4,51 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oriteddy</title>
+
+    <!--CSS-->
+    <link href="styles/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
 
     <header>
-        <div id="page_header">
-            <div>
-                <img src="img/logo-oriteddy.png" alt="Logo Oriteddy" />
-                <h1>Oriteddy</h1>
-            </div>
-            <nav>
-                <ul id="main_nav">
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="cart.html">Panier</a></li>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+            <a class="navbar-brand" href="index.html">
+                <img src="img/logo-oriteddy.png" alt="Logo Oriteddy" width="50" height="50" class="d-inline-block"/>
+                Oriteddy
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active"><a class="nav-link" href="index.html">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cart.html">Panier</a></li>
                 </ul>
-            </nav>
-        </div>
+            </div>
+        </nav>
     </header>
 
-    <main>
-        <div>
-            <h2>Oriteddy</h2>
-            <p>Créateur d'oursons sur-mesure</p>
+    <main class="container-fluid">
+        <div class="text-center">
+            <h1>Oriteddy</h1>
+            <p >Créateur d'oursons sur-mesure</p>
         </div>
-        <div>
-            <img src="img/fabrication-ours2.jpg" alt="fabrication ours">
+        <div class="text-center">
+            <img src="img/fabrication-ours2.jpg" alt="fabrication ours" class="d-block w-100" />
         </div>
-        <div>
-            <h3 class="title">Découvrez nos ours faits-main et personnalisables</h3>
+        <div class="text-center">
+            <h2>Découvrez nos oursons faits-main et personnalisables</h2>
             <div class="products">
-                test
+                
             </div>
         </div>
     </main>
 
-    <footer>
-        <div class="footer__logo">
-            <img src="img/logo-oriteddy.png" alt="logo ohmyfood"/>
+    <footer class="bg-dark">
+        <div class="container-fluid text-center">
+            <div class="row">
+                <div class="col">
+                    <ul class="list-unstyled ">
+                        <li class="list-inline-item"><a href="mailto:oriteddy@orinoco.fr">Contact</a></li>
+                        <li class="list-inline-item"><a href="#">Mentions légales</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <ul class="footer__list">
-            <li><a href="mailto:oriteddy@orinoco.fr">Contact</a></li>
-            <li><a href="#">Mentions légales</a></li>
-        </ul>
     </footer>
 
 </body>
+
+  <!-- jQuery link -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="styles/bootstrap/js/bootstrap.min.js"></script>
 
 </html>
