@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oriteddy</title>
+
+    <!--CSS-->
+    <link href="styles/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+            <a class="navbar-brand" href="index.html">
+                <img src="img/logo-oriteddy.png" alt="Logo Oriteddy" width="50" height="50" class="d-inline-block"/>
+                Oriteddy
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active"><a class="nav-link" href="index.html">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cart.html">Panier</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container d-flex justify-content-center">
+            <div class="product-card card" style="width: 20rem;">
+                <div class="product-card__img card-img-top text-center">
+                    <img src="" alt="" class="img w-100">
+                </div>
+                <div class="product-card__infos card-body">
+                    <h3 class="product-card__infos__title card-title text-center"></h3>
+                    <p class="product-card__infos__description card-text text-center"></p>
+                    <p class="product-card__infos__price text-center"></p>
+                    <div class="product-card__infos__quantity">
+                        <label for="productNumber">Quantité :</label>
+                        <input id="productNumber" type="number" name="productNumber" value="1" min="1">
+                    </div>
+                    <div class="product-card__infos__color">
+                        <label for="color-select">Couleur :</label>
+                        <select id="color-select" name="color"></select>
+                    </div>
+                    <div class="added-to-cart-confirmation">
+                        <p class="confirmation-text"></p>
+                    </div>
+                    <div class="product-card__infos__buttons row">
+                        <a href="index.html" class="col-6">
+                            <div class="product-card__infos__button back-to-home">
+                                Revenir aux peluches
+                            </div>
+                        </a>
+                        <a href="#" class="col-6">
+                            <div class="product-card__infos__button add-to-cart btn btn-primary">
+                                Ajouter au panier
+                            </div>
+                        </a> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-dark">
+        <div class="container-fluid text-center">
+            <div class="row">
+                <div class="col">
+                    <ul class="list-unstyled ">
+                        <li class="list-inline-item"><a href="mailto:oriteddy@orinoco.fr">Contact</a></li>
+                        <li class="list-inline-item"><a href="#">Mentions légales</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+<script src="scripts/product.js"></script>
+
+</body>
+
+  <!-- jQuery link -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="styles/bootstrap/js/bootstrap.min.js"></script>
+
+</html>
