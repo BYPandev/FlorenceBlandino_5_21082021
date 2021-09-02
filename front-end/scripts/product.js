@@ -46,9 +46,41 @@ function getProductById() {
     });
 }
 
+function addtoCart() {
+    const addtoCartBtn = document.querySelector(".add-to-cart");
+
+    // Ecoute de l'événement au clic
+    addtoCartBtn.addEventListener("click", () => {
+        if (productNumber.value > 0 && productNumber.value < 100) {
+            //Création des caractéristiques du produit ajouté au panier
+            let productAdded = {
+                name: productCardName.innerHTML,
+                price: parseFloat(productCardPrice.innerHTML),
+                quantity: parseFloat(document.querySelector("#productNumber").value),
+                _id: id,
+            };
+            // Déclaration tableau pour gestion du localStorage
+            let arrayProductsInCart = [];
+
+            //Si localStorage existe, on récupère son contenu
+            if (localStorage.getItem("products") !==null) {
+                arrayProductsInCart = JSON.parse(localStorage.getItem("products"));
+            }
+            // On crée le localStorage avec le produit ajouté
+            arrayProductsInCart.push(productAdded);
+            localStorage.setItem("products", JSON.stringify(arrayProductsInCart));
+            console.log(localStorage);
+            alert('Votre article a bien été ajouté');
+        } else {
+            alert('La quantité doit être comprise entre 1 et 99')
+        }
+    });
+}
+
 // Appel de la fonction 
 main();
 
 function main() {
   getProductById();
+  addtoCart();
 }
