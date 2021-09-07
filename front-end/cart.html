@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oriteddy - Panier</title>
+
+    <!--CSS-->
+    <link href="styles/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+            <a class="navbar-brand" href="index.html">
+                <img src="img/logo-oriteddy.png" alt="Logo Oriteddy" width="50" height="50" class="d-inline-block"/>
+                Oriteddy
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active"><a class="nav-link" href="index.html">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cart.html">Panier</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="order">
+                <h2 class="order__title">Votre panier</h2>
+                <div class="order-summary"> 
+                    <div class="order-summary__header d-flex">
+                        <div class="order-summary__title name">Nom</div>
+                        <div class="order-summary__title quantity">Quantité</div>
+                        <div class="order-summary__title price">Prix </div>
+                    </div>
+                    <div class="order-summary__products">
+
+                    </div>
+                    <div class="delete-cart">
+                        <a href="cart.html">
+                            <div class="delete-cart__btn">
+                                Vider le panier
+                            </div>
+                        </a>
+                    </div>
+                    <h2 class="total"></h2>            
+                </div>
+    
+                <div class="order__form">
+                    <h2>Pour valider votre commande, merci de remplir ce formulaire</h2>
+                    <form class="form">
+                        <div class="firstname-lastname">
+                            <div class="order__form-line" id="firstname-bloc">
+                                <label for="firstname">Prénom :</label>
+                                <input type="text" placeholder="Prénom" id="firstname" name="user_firstname" required> 
+                            </div>
+                            <div class="order__form-line" id="lastname-bloc">
+                                <label for="lastname">Nom :</label>
+                                <input type="text" placeholder="Nom" id="lastname" name="user_lastname" required>
+                            </div>
+                        </div>        
+                        <div class="postal-city">
+                            <div class="order__form-line" id="postal-bloc">
+                                <label for="postal">Code postal :</label>
+                                <input type="text" placeholder="Code postal" id="postal" name="user_postal" required>
+                            </div>
+                            <div class="order__form-line" id="city-bloc">
+                                <label for="city">Ville :</label>
+                                <input type="text" placeholder="Ville" id="city" name="user_city" required>
+                            </div>
+                        </div>
+                        <div class="order__form-line" id="adress-bloc">
+                            <label for="address">Adresse :</label>
+                            <input type="text" placeholder="Adresse de livraison" id="address" name="user_address" required>
+                        </div>
+                        <div class="order_form-line" id="mail-bloc">
+                            <label for="mail">Adresse mail :</label>
+                            <input type="email" placeholder="Adresse mail" id="mail" name="user_mail" required>
+                        </div>
+                        <div class="order__form-line" id="phone-bloc">
+                            <label for="phone" >Numéro de téléphone :</label>
+                            <input type="tel" placeholder="Numéro de téléphone" id="phone" name="phone" required >
+                        </div>
+                        <div class="error"></div>
+                        <div class="order__form__btn">
+                                <div id="submit" class="order__form__button order-btn" >Commander</div>
+                        </div>
+                    </form>
+
+                    <div class="added-to-cart-confirmation">
+                        <p class="confirmation-text"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-dark">
+        <div class="container-fluid text-center">
+            <div class="row">
+                <div class="col">
+                    <ul class="list-unstyled ">
+                        <li class="list-inline-item"><a href="mailto:oriteddy@orinoco.fr">Contact</a></li>
+                        <li class="list-inline-item"><a href="#">Mentions légales</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+<script src="scripts/cart.js"></script>
+
+</body>
+
+  <!-- jQuery link -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="styles/bootstrap/js/bootstrap.min.js"></script>
+
+</html>
