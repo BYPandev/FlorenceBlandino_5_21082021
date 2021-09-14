@@ -1,11 +1,11 @@
-//---AFFICHAGE DES PRODUITS DU PANIER
-const order = document.querySelector(".order-summary");
+//---AFFICHAGE DES PRODUITS DU PANIER---//
+const orderSummary = document.querySelector(".order-summary");
 let arrayProductsInCart = JSON.parse(localStorage.getItem("products"));
 
 function displayCart() {
         // Si panier est vide : affiche un message
     if(arrayProductsInCart === null){
-        let ifEmptyCart = order;
+        let ifEmptyCart = orderSummary;
         ifEmptyCart.classList.add(".if-empty-cart")
         ifEmptyCart.innerHTML = "Votre panier est vide.";
         ifEmptyCart.style.textAlign = "center";
@@ -39,10 +39,10 @@ function displayCart() {
     } 
 }
 
-//---CALCUL DU MONTANT TOTAL DU PANIER
+//---CALCUL DU MONTANT TOTAL DU PANIER---//
 
 function totalCountCart() {
-    // Déclaration de variable pour mettre les prix présents dans le panier
+    // Déclaration de variables pour mettre les prix présents dans le panier
     let arrayPriceCart = [];
     let totalPrice = document.querySelector(".total");
 
@@ -73,9 +73,11 @@ function totalCountCart() {
         currency: "EUR",
     }
     ).format(arrayPriceCart))}`;
+
+    localStorage.setItem("priceOrder", JSON.stringify(arrayPriceCart));
 }
 
-//---SUPPRESSION DE TOUS LES PRODUITS DU PANIER
+//---SUPPRESSION DE TOUS LES PRODUITS DU PANIER---//
 function deleteCart() {
     // Au clic sur le bouton, tous les produits sont supprimés du panier et du local storage
     const buttonDeleteCart = document.querySelector(".delete-cart");
@@ -84,7 +86,78 @@ function deleteCart() {
     });
 }
 
+//---FORMULAIRE---//
+function checkForm () {
+// Déclaration des variables pour récupérer les éléments inputs depuis le DOM
+    let lastName = document.querySelector("#lastname");
+    let firstName = document.querySelector("#firstname");
+    let address = document.querySelector("#address");
+    let city = document.querySelector("#city");
+    let email = document.querySelector("#mail");
+    const submit = document.querySelector("#submit");
+
+    // Déclaration des constantes de conformité des champs du formulaire
+    const textRegEx = /^(([a-zA-ZÀ-ÿ]+[\s\-]{1}[a-zA-ZÀ-ÿ]+)|([a-zA-ZÀ-ÿ]+))$/;
+    const emailRegEx = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$/;
+    const addressRegEX = /^(([a-zA-ZÀ-ÿ0-9]+[\s\-]{1}[a-zA-ZÀ-ÿ0-9]+)){1,10}$/;
+    const cityRegEx= /^(([a-zA-ZÀ-ÿ]+[\s\-]{1}[a-zA-ZÀ-ÿ]+)|([a-zA-ZÀ-ÿ]+)){1,10}$/;
+
+    // Écoute du "click" sur le bouton pour valider la commande
+    submit.addEventListener("click", (e) => {
+
+        // Création de condition pour valider le formulaire s'il est correctement rempli par le client
+        if (!textRegEx.test(lastName.value) ||
+            !textRegEx.test(firstName.value) ||
+            !emailRegEx.test(email.value) ||
+            !addressRegEX.test(address.value) ||
+            !cityRegEx.test(city.value)) {
+            alert("Merci de vérifier que les champs complétés sont corrects.");
+        } else {
+            e.preventDefault();
+            // Si le formulaire est valide, création d'un tableau des produits achetés avec leurs _id
+            let products = [];
+            let productsOrdered = JSON.parse(localStorage.getItem("products"));
+            productsOrdered.forEach(p => {
+                products.push(p._id);
+            })
+            console.log(productsOrdered);
+
+            // Création d'une constante qui rassemble le formulaire et le tableau de produits 
+            const order = {
+                // création de l'objet contact pour la fiche client
+                contact: {
+                    lastName: lastName.value,
+                    firstName: firstName.value,
+                    address: address.value,
+                    city: city.value,
+                    email: email.value,
+                },
+                products: products,
+            };
+            console.log(order);
+
+            // Envoi de la requete POST au back-end
+            fetch("http://localhost:3000/api/teddies/order", {
+                method: "POST",
+                body: JSON.stringify(order),
+                headers: { "Content-Type": "application/json" },
+                })
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log(data);
+                    localStorage.setItem("orderId", data.orderId);
+                    // Envoi vers la page de confirmation
+                    document.location.href = "confirmation.html";
+                })
+                .catch((erreur) => console.log("erreur : " + erreur));
+        }
+
+    });
+
+}
+
 // Appel des fonctions
 displayCart();
 deleteCart();
 totalCountCart();
+checkForm();

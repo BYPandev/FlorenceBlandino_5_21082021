@@ -55,47 +55,29 @@
                 <div class="order__form">
                     <h2>Pour valider votre commande, merci de remplir ce formulaire</h2>
                     <form class="form">
-                        <div class="firstname-lastname">
-                            <div class="order__form-line" id="firstname-bloc">
-                                <label for="firstname">Prénom :</label>
-                                <input type="text" placeholder="Prénom" id="firstname" name="user_firstname" required> 
-                            </div>
-                            <div class="order__form-line" id="lastname-bloc">
-                                <label for="lastname">Nom :</label>
-                                <input type="text" placeholder="Nom" id="lastname" name="user_lastname" required>
-                            </div>
-                        </div>        
-                        <div class="postal-city">
-                            <div class="order__form-line" id="postal-bloc">
-                                <label for="postal">Code postal :</label>
-                                <input type="text" placeholder="Code postal" id="postal" name="user_postal" required>
-                            </div>
-                            <div class="order__form-line" id="city-bloc">
-                                <label for="city">Ville :</label>
-                                <input type="text" placeholder="Ville" id="city" name="user_city" required>
-                            </div>
+                        <div class="order__form-line" id="lastname-bloc">
+                            <label for="lastname">Nom :</label>
+                            <input type="text" placeholder="Nom" id="lastname" name="user_lastname" required>
+                        </div> 
+                        <div class="order__form-line" id="firstname-bloc">
+                            <label for="firstname">Prénom :</label>
+                            <input type="text" placeholder="Prénom" id="firstname" name="user_firstname" required> 
                         </div>
                         <div class="order__form-line" id="adress-bloc">
                             <label for="address">Adresse :</label>
                             <input type="text" placeholder="Adresse de livraison" id="address" name="user_address" required>
+                        </div>     
+                        <div class="order__form-line" id="city-bloc">
+                            <label for="city">Ville :</label>
+                            <input type="text" placeholder="Ville" id="city" name="user_city" required>
                         </div>
                         <div class="order_form-line" id="mail-bloc">
                             <label for="mail">Adresse mail :</label>
                             <input type="email" placeholder="Adresse mail" id="mail" name="user_mail" required>
                         </div>
-                        <div class="order__form-line" id="phone-bloc">
-                            <label for="phone" >Numéro de téléphone :</label>
-                            <input type="tel" placeholder="Numéro de téléphone" id="phone" name="phone" required >
-                        </div>
                         <div class="error"></div>
-                        <div class="order__form__btn">
-                                <div id="submit" class="order__form__button order-btn" >Commander</div>
-                        </div>
+                        <input id="submit" type="submit" class="order__form__btn" value="Valider la commande" />
                     </form>
-
-                    <div class="added-to-cart-confirmation">
-                        <p class="confirmation-text"></p>
-                    </div>
                 </div>
             </div>
         </div>
