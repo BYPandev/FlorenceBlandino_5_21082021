@@ -7,12 +7,22 @@
 
     <!--CSS-->
     <link href="styles/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles/css/styles.css" rel="stylesheet">
+
+    <!-- jQuery link -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" defer></script>
+    <!-- Bootstrap JS -->
+    <script src="styles/bootstrap/js/bootstrap.min.js" defer></script>
+
+    <script src="scripts/cart.js" defer></script>
+
+
 </head>
 
 <body>
-
+    <!--HEADER-->
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+        <nav class="navbar navbar-expand-lg navbar-dark">
             <a class="navbar-brand" href="index.html">
                 <img src="img/logo-oriteddy.png" alt="Logo Oriteddy" width="50" height="50" class="d-inline-block"/>
                 Oriteddy
@@ -29,65 +39,66 @@
         </nav>
     </header>
 
+    <!--CART PAGE-->
     <main>
         <div class="container">
             <div class="order">
-                <h2 class="order__title">Votre panier</h2>
+                <h2 class="order__title text-center">Votre panier</h2>
                 <div class="order-summary"> 
                     <div class="order-summary__header d-flex">
-                        <div class="order-summary__title name">Nom</div>
-                        <div class="order-summary__title quantity">Quantité</div>
-                        <div class="order-summary__title price">Prix </div>
+                        <div class="order-summary__title name">NOM</div>
+                        <div class="order-summary__title quantity">QUANTITÉ</div>
+                        <div class="order-summary__title price">PRIX </div>
                     </div>
                     <div class="order-summary__products">
 
                     </div>
+                    <h2 class="total"></h2> 
                     <div class="delete-cart">
                         <a href="cart.html">
-                            <div class="delete-cart__btn">
+                            <div class="delete-cart__btn btn">
                                 Vider le panier
                             </div>
                         </a>
-                    </div>
-                    <h2 class="total"></h2>            
+                    </div>            
                 </div>
-    
+                <!--Form-->
                 <div class="order__form">
-                    <h2>Pour valider votre commande, merci de remplir ce formulaire</h2>
+                    <h2 class="text-center">Pour valider votre commande, merci de remplir ce formulaire</h2>
                     <form class="form">
-                        <div class="order__form-line" id="lastname-bloc">
+                        <div class="order__form-line col-12 col-md-9 col-lg-9" id="lastname-bloc">
                             <label for="lastname">Nom :</label>
                             <input type="text" placeholder="Nom" id="lastname" name="user_lastname" required>
                         </div> 
-                        <div class="order__form-line" id="firstname-bloc">
+                        <div class="order__form-line col-12 col-md-9 col-lg-" id="firstname-bloc">
                             <label for="firstname">Prénom :</label>
                             <input type="text" placeholder="Prénom" id="firstname" name="user_firstname" required> 
                         </div>
-                        <div class="order__form-line" id="adress-bloc">
+                        <div class="order__form-line col-12 col-md-9 col-lg-" id="adress-bloc">
                             <label for="address">Adresse :</label>
                             <input type="text" placeholder="Adresse de livraison" id="address" name="user_address" required>
                         </div>     
-                        <div class="order__form-line" id="city-bloc">
+                        <div class="order__form-line col-12 col-md-9 col-lg-" id="city-bloc">
                             <label for="city">Ville :</label>
                             <input type="text" placeholder="Ville" id="city" name="user_city" required>
                         </div>
-                        <div class="order_form-line" id="mail-bloc">
+                        <div class="order__form-line col-12 col-md-9 col-lg-" id="mail-bloc">
                             <label for="mail">Adresse mail :</label>
                             <input type="email" placeholder="Adresse mail" id="mail" name="user_mail" required>
                         </div>
-                        <div class="error"></div>
-                        <input id="submit" type="submit" class="order__form__btn" value="Valider la commande" />
+                        <a href="#" id="submit" class="order__form__btn btn">Valider la commande</a>
                     </form>
                 </div>
             </div>
         </div>
     </main>
 
-    <footer class="bg-dark">
+    <!--FOOTER-->
+    <footer class="d-flex align-items-center">
         <div class="container-fluid text-center">
             <div class="row">
                 <div class="col">
-                    <ul class="list-unstyled ">
+                    <ul class="list-unstyled">
                         <li class="list-inline-item"><a href="mailto:oriteddy@orinoco.fr">Contact</a></li>
                         <li class="list-inline-item"><a href="#">Mentions légales</a></li>
                     </ul>
@@ -96,13 +107,5 @@
         </div>
     </footer>
 
-<script src="scripts/cart.js"></script>
-
 </body>
-
-  <!-- jQuery link -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <!-- Bootstrap JS -->
-  <script src="styles/bootstrap/js/bootstrap.min.js"></script>
-
 </html>
