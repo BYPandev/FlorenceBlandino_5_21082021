@@ -1,3 +1,5 @@
+//---AFFICHAGE D'UN PRODUIT SÉLECTIONNÉ---//
+
 // Déclaration des variables pour accéder au paramètre "id" de l'API
 let params = new URL(document.location).searchParams;
 let id = params.get("id");
@@ -46,41 +48,62 @@ function getProductById() {
     });
 }
 
+// Ajoute le produit sélectionné dans le panier 
 function addtoCart() {
-    const addtoCartBtn = document.querySelector(".add-to-cart");
+  const addtoCartBtn = document.querySelector(".add-to-cart");
 
-    // Ecoute de l'événement au clic
-    addtoCartBtn.addEventListener("click", () => {
-        if (productNumber.value > 0 && productNumber.value < 100) {
-            //Création des caractéristiques du produit ajouté au panier
-            let productAdded = {
-                name: productCardName.innerHTML,
-                price: parseFloat(productCardPrice.innerHTML),
-                quantity: parseFloat(document.querySelector("#productNumber").value),
-                _id: id,
-            };
-            // Déclaration tableau pour gestion du localStorage
-            let arrayProductsInCart = [];
+  // Ecoute de l'événement au clic
+  addtoCartBtn.addEventListener("click", () => {
+      //Création des caractéristiques du produit ajouté au panier
+    let productAdded = {
+        name: productCardName.innerHTML,
+        price: parseFloat(productCardPrice.innerHTML),
+        quantity: parseFloat(document.querySelector("#productNumber").value),
+        _id: id,
+      }
+          
+    let quantity = parseFloat(document.querySelector("#productNumber").value);
+          
+    // Ajout dans le LS
+    let arrayProductsInCart = JSON.parse(localStorage.getItem("products"));
 
-            //Si localStorage existe, on récupère son contenu
-            if (localStorage.getItem("products") !==null) {
-                arrayProductsInCart = JSON.parse(localStorage.getItem("products"));
-            }
-            // On crée le localStorage avec le produit ajouté
-            arrayProductsInCart.push(productAdded);
-            localStorage.setItem("products", JSON.stringify(arrayProductsInCart));
-            console.log(localStorage);
-            alert('Votre article a bien été ajouté');
-        } else {
-            alert('La quantité doit être comprise entre 1 et 99')
-        }
-    });
+    //S'il n'y a pas de panier, création d'un tableau 
+    if(!arrayProductsInCart) {
+      let arrayProductsInCart = [];
+      arrayProductsInCart.push(productAdded);
+      localStorage.setItem("products", JSON.stringify(arrayProductsInCart));
+      popUpConfirmation()
+
+    // Sinon, s'il y a un panier
+    // vérifie qu'il n'y pas le même objet dans le panier avant de l'ajouter au LS
+    } else if(!arrayProductsInCart.some(p => p._id === productAdded._id)) {
+      arrayProductsInCart.push(productAdded);
+      localStorage.setItem("products", JSON.stringify(arrayProductsInCart));
+      popUpConfirmation()
+
+    // Sinon
+    // s'il y a un objet dans le panier, le produit est filtré par son _id et la quantité mise à jour avant l'ajout au LS
+    } else {
+        arrayProductsInCart
+          .filter(p => p._id === productAdded._id)
+          .map(productAdded => productAdded.quantity = quantity + productAdded.quantity)
+          .push(productAdded);
+        localStorage.setItem("products", JSON.stringify(arrayProductsInCart));
+        popUpConfirmation()
+      };
+  });
 }
 
-// Appel de la fonction 
-main();
-
-function main() {
-  getProductById();
-  addtoCart();
+// Affichage d'une fenêtre de confirmation de l'ajout au panier
+function popUpConfirmation(){
+  if(window.confirm(`Votre produit a bien été ajouté au panier ! 
+  Cliquez sur OK pour voir votre panier ou Annuler pour continuer votre shopping`)){
+    window.location.href = "./cart.html";
+  } else {
+    window.location.href = "./index.html";
+  }
 }
+
+// Appel des fonctions 
+getProductById();
+addtoCart();
