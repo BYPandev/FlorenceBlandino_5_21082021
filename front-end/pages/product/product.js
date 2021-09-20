@@ -98,9 +98,9 @@ function addtoCart() {
 function popUpConfirmation(){
   if(window.confirm(`Votre produit a bien été ajouté au panier ! 
   Cliquez sur OK pour voir votre panier ou Annuler pour continuer votre shopping`)){
-    window.location.href = "./cart.html";
+    window.location.href = "../cart/cart.html";
   } else {
-    window.location.href = "./index.html";
+    window.location.href = "../index/index.html";
   }
 }
 

@@ -110,7 +110,7 @@ function checkForm () {
             !cityRegEx.test(city.value)) {
             alert("Merci de vérifier que les champs complétés sont corrects.");
         } else {
-            e.preventDefault();
+            e.preventDefault(e);
             // Si le formulaire est valide, création d'un tableau des produits achetés avec leurs _id
             let products = [];
             let productsOrdered = JSON.parse(localStorage.getItem("products"));
@@ -140,7 +140,7 @@ function checkForm () {
                     console.log(data);
                     localStorage.setItem("orderId", data.orderId);
                     // Envoi vers la page de confirmation
-                    document.location.href = "confirmation.html";
+                    document.location.href = "../confirmation/confirmation.html";
                 })
                 .catch((erreur) => console.log("erreur : " + erreur));
         }
