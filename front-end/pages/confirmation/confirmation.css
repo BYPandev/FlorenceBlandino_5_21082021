@@ -1,0 +1,16 @@
+/* ORDER CONFIRMATION */
+
+.confirmation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.confirmation__infos {
+    border: 1px solid;
+    border-radius: 40px;
+    padding: 10px 20px;
+    background-color: #61423b;
+    color:rgb(250, 245, 228);
+    margin: 10px;
+}

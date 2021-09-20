@@ -1,0 +1,33 @@
+/* PRODUCTS LIST */
+
+.product {
+    margin-bottom: 15px;
+    height: 400px;
+}
+
+.product-link:hover{
+    text-decoration: none;
+    transform: scale(1.05);
+    transition-duration: 500ms;
+}
+
+.product img {
+    object-fit: cover;
+}
+.product__infos {
+    color: #61423b;
+    background-color: #f8cd9c;
+}
+
+.product__infos:hover {
+    color:#33221e;
+}
+
+.product__infos__title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.product__infos__price {
+    font-size: 16px;
+}
