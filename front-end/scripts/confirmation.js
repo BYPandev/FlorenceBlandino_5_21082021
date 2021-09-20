@@ -1,4 +1,4 @@
-//---CONFIRMATION DE COMMANDE
+//---AFFICHAGE DE LA PAGE CONFIRMATION DE COMMANDE---//
 
 function orderConfirmation() {
     const orderId = document.querySelector("#orderId");
@@ -6,9 +6,7 @@ function orderConfirmation() {
 
     orderId.innerText = localStorage.getItem("orderId");
     priceOrder.innerText = JSON.parse(localStorage.getItem("priceOrder"));
-
-    // On vide le localStorage 
-    localStorage.clear;
 }
 
+// Appel de la fonction
 orderConfirmation();
