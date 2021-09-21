@@ -114,15 +114,13 @@ function checkForm () {
             // Si le formulaire est valide, création d'un tableau des produits achetés avec leurs _id
             let products = [];
             let productsOrdered = JSON.parse(localStorage.getItem("products"));
-            productsOrdered.forEach(p => {
-                products.push(p._id);
-            })
+            productsOrdered.forEach(p => {products.push(p._id);})
             // Création d'une constante qui rassemble les données du formulaire et le tableau de produits 
             const order = {
                 // création de l'objet contact pour la fiche client
                 contact: {
-                    lastName: lastName.value,
                     firstName: firstName.value,
+                    lastName: lastName.value,
                     address: address.value,
                     city: city.value,
                     email: email.value,
