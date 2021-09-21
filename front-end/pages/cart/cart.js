@@ -135,7 +135,6 @@ function checkForm () {
                 })
                 .then((response) => response.json())
                 .then((data) => {
-                    console.log(data);
                     localStorage.setItem("orderId", data.orderId);
                     // Envoi vers la page de confirmation
                     document.location.href = "../confirmation/confirmation.html";
