@@ -32,6 +32,7 @@ function getProducts() {
         productImgDiv.appendChild(productImg);
         productImg.classList.add("card-img-top", "h-100");
         productImg.src = resultatAPI[article].imageUrl;
+        productImg.alt = "Photo de nounours"
 
         // Aréation du bloc pour les infos du produit
         let productInfosDiv = document.createElement("div");
